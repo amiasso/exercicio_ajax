@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Miasso</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img class="profile-avatar" src="https://via.placeholder.com/180x180" alt="foto do avatar">
+            <h1 class="profile-name">Antonio Miasso</h1>
+            <h2 class="profile-username">Amiasso</h2>
+            <ul class="numbers">
+                <li class="numbers-item">
+                    <h4>Repositórios</h4>
+                    5
+                </li>
+                <li class="numbers-item">
+                    <h4>Seguidores</h4>
+                    5
+                </li>
+                <li class="numbers-item">
+                    <h4>Seguindo</h4>
+                    5
+                </li>
+            </ul>
+            <a href="#link" class="profile-link">Ver no Github</a>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const nameElement = document.querySelector('#name');
+            const userNameelement = document.querySelector('#userName');
+            const avatarElement = document.querySelector('#avatar');
+            const reposElement = document.querySelector('#repos');
+            const followersElement = document.querySelector('#followers');
+            const followingsElement = document.querySelector('#following');
+            const linkElement = document.querySelector('#link');
+
+            fetch('https://api.github.com/users/amiasso')
+                .then(function(res){
+                    return res.json();
+                })
+                .then(function(json){
+
+                    nameElement.innerText = json.name;
+                    userNameelement.innerText = json.userNameelement;
+                    avatarElement.src = json.avatar_url;
+                    followersElement.innerText = json.followersElement;
+                    followingsElement.innerText = json.followingsElement;
+                    repos.innerText = json.public_repos;
+                    linkElement = json.html_url;
+        })
+           
+})
+    </script>
+</body>
+</html>
